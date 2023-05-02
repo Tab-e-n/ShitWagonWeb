@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://4ktmmgyk6blf"]
+
+[ext_resource type="PackedScene" uid="uid://v8b7k25ot6il" path="res://Train.tscn" id="1"]
+[ext_resource type="Texture2D" uid="uid://cmkw37l7koq3b" path="res://Sprites/BG.png" id="1_kf0l2"]
+[ext_resource type="PackedScene" uid="uid://c6h775tykqqvr" path="res://ShitFlinger.tscn" id="2"]
+[ext_resource type="TileSet" uid="uid://cr6l4gnew8wa5" path="res://stars.tres" id="2_2ou0v"]
+[ext_resource type="PackedScene" uid="uid://dakjclm1i1rgn" path="res://Scoreboard.tscn" id="3_rqq16"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Bg" type="Sprite2D" parent="."]
+position = Vector2(512, 384)
+texture = ExtResource("1_kf0l2")
+
+[node name="Stars" type="TileMap" parent="."]
+tile_set = ExtResource("2_2ou0v")
+format = 2
+layer_0/tile_data = PackedInt32Array(65537, 0, 0, 262154, 0, 0, 65557, 0, 0, 262173, 0, 0, 131087, 0, 0, 131079, 0, 0, 262147, 0, 0, 262167, 0, 0, 65563, 0, 0, 524294, 1, 0, 65540, 1, 0, 65548, 1, 0, 786448, 1, 0, 131090, 1, 0, 131097, 1, 0, 458780, 1, 0, 720924, 1, 0, 524309, 1, 0, 327699, 0, 0, 524300, 0, 0, 458752, 0, 0, 65567, 0, 0, -65527, 0, 0, -65518, 1, 0, -65511, 1, 0, 393248, 0, 0, 14, 0, 0, 262143, 1, 0, 6, 1, 0)
+
+[node name="Train" parent="." instance=ExtResource("1")]
+position = Vector2(512, 704)
+max_left = -196
+max_right = 196
+
+[node name="ShitFlinger" parent="." instance=ExtResource("2")]
+position = Vector2(512, -64)
+max_left = -256
+max_right = 256
+
+[node name="Line2D" type="Line2D" parent="."]
+visible = false
+points = PackedVector2Array(0, 0, 1024, 0, 1024, 768, 0, 768, 0, 0)
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+visible = false
+position = Vector2(-64, 192)
+polygon = PackedVector2Array(192, 512, 256, 512, 256, 576, 192, 576)
+
+[node name="Polygon2D2" type="Polygon2D" parent="."]
+visible = false
+position = Vector2(640, 192)
+polygon = PackedVector2Array(192, 512, 256, 512, 256, 576, 192, 576)
+
+[node name="Scoreboard" parent="." instance=ExtResource("3_rqq16")]
+position = Vector2(512, 64)

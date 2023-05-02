@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://22pv6kolemr0"]
+
+[ext_resource type="Script" path="res://NinjaShit.gd" id="1_c4bic"]
+[ext_resource type="Texture2D" uid="uid://o8fri14j6din" path="res://Sprites/Warning.png" id="2_0nwmi"]
+[ext_resource type="Texture2D" uid="uid://o64d6vvnekp0" path="res://Sprites/NinjaShit0.png" id="2_h63br"]
+[ext_resource type="Texture2D" uid="uid://ckncauqek41do" path="res://Sprites/NinjaShitTrail.png" id="3_ke4hq"]
+
+[sub_resource type="RectangleShape2D" id="1"]
+size = Vector2(32, 704)
+
+[node name="Shit" type="CharacterBody2D"]
+collision_layer = 2
+script = ExtResource("1_c4bic")
+
+[node name="visual" type="Polygon2D" parent="."]
+visible = false
+position = Vector2(0, 32)
+polygon = PackedVector2Array(-16, 736, 0, -32, 16, 736)
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 416)
+shape = SubResource("1")
+disabled = true
+
+[node name="warning" type="Sprite2D" parent="."]
+position = Vector2(0, 112)
+scale = Vector2(2, 2)
+texture = ExtResource("2_0nwmi")
+
+[node name="NinjaShit0" type="Sprite2D" parent="."]
+show_behind_parent = true
+texture = ExtResource("2_h63br")
+
+[node name="NinjaShitTrail" type="Sprite2D" parent="NinjaShit0"]
+show_behind_parent = true
+position = Vector2(0, -120)
+texture = ExtResource("3_ke4hq")

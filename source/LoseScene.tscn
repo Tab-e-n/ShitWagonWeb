@@ -1,0 +1,75 @@
+[gd_scene load_steps=9 format=3 uid="uid://cym246gdun2nc"]
+
+[ext_resource type="Script" path="res://LoseScene.gd" id="1_pvj5m"]
+[ext_resource type="Texture2D" uid="uid://cmkw37l7koq3b" path="res://Sprites/BG.png" id="2_20xba"]
+[ext_resource type="TileSet" uid="uid://cr6l4gnew8wa5" path="res://stars.tres" id="3_tbkf6"]
+[ext_resource type="Texture2D" uid="uid://d1kbmqiv2opaw" path="res://Sprites/Moon.png" id="4_n21om"]
+
+[sub_resource type="FontVariation" id="FontVariation_d4e1v"]
+variation_transform = Transform2D(2, 0, 0, 2, 0, 0)
+spacing_glyph = 9
+spacing_top = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b2s8p"]
+bg_color = Color(0, 0.0235294, 0.196078, 1)
+
+[sub_resource type="InputEventKey" id="InputEventKey_7qi3r"]
+device = -1
+keycode = 32
+unicode = 32
+
+[sub_resource type="Shortcut" id="Shortcut_unn51"]
+events = [SubResource("InputEventKey_7qi3r")]
+
+[node name="LoseScene" type="Node2D"]
+script = ExtResource("1_pvj5m")
+
+[node name="Bg" type="Sprite2D" parent="."]
+modulate = Color(0.588235, 0.588235, 0.588235, 1)
+position = Vector2(272, 416)
+scale = Vector2(2, 2)
+texture = ExtResource("2_20xba")
+flip_h = true
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("3_tbkf6")
+format = 2
+layer_0/tile_data = PackedInt32Array(917506, 0, 0, 786461, 0, 0, 196636, 0, 0, 131075, 0, 0, 15, 0, 0, -65513, 0, 0, 524320, 0, 0, 524287, 0, 0, 262151, 0, 0, 786431, 1, 0, 327683, 1, 0, 131071, 1, 0, 6, 1, 0, 131084, 1, 0, 131092, 1, 0, 27, 1, 0, 196639, 1, 0, 524314, 1, 0, 1048603, 1, 0, 655365, 0, 0, 851974, 1, 0, 65545, 1, 0, 262168, 1, 0)
+
+[node name="Moon" type="Sprite2D" parent="."]
+position = Vector2(544, 368)
+scale = Vector2(4, 4)
+texture = ExtResource("4_n21om")
+
+[node name="humiliation" type="RichTextLabel" parent="."]
+offset_left = 384.0
+offset_top = 208.0
+offset_right = 704.0
+offset_bottom = 304.0
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[center]U failed dumbass.
+Final Score:[/center]"
+
+[node name="score" type="RichTextLabel" parent="."]
+modulate = Color(0.172549, 0.0431373, 0.298039, 1)
+offset_left = 384.0
+offset_top = 352.0
+offset_right = 704.0
+offset_bottom = 416.0
+theme_override_fonts/normal_font = SubResource("FontVariation_d4e1v")
+bbcode_enabled = true
+text = "[center]100[/center]"
+
+[node name="Button" type="Button" parent="."]
+offset_left = 480.0
+offset_top = 448.0
+offset_right = 608.0
+offset_bottom = 512.0
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_b2s8p")
+shortcut = SubResource("Shortcut_unn51")
+text = "RESET
+"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

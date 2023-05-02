@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://d2djq57375v1d"]
+
+[ext_resource type="Script" path="res://ParaShit.gd" id="1_s3bg7"]
+[ext_resource type="Texture2D" uid="uid://bbyimrobadg1e" path="res://Sprites/ParaShit0.png" id="2_fw2og"]
+
+[sub_resource type="RectangleShape2D" id="1"]
+size = Vector2(32, 32)
+
+[node name="Shit" type="CharacterBody2D"]
+collision_layer = 2
+script = ExtResource("1_s3bg7")
+
+[node name="ParaShit0" type="Sprite2D" parent="."]
+position = Vector2(0, 16)
+texture = ExtResource("2_fw2og")
+offset = Vector2(0, -8)
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 16)
+shape = SubResource("1")

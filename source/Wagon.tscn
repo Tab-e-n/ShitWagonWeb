@@ -1,0 +1,63 @@
+[gd_scene load_steps=9 format=3 uid="uid://d3734ub0danwd"]
+
+[ext_resource type="Script" path="res://Wagon.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://b1g2760bdpli7" path="res://Sprites/Wagon0.png" id="2_1kn5y"]
+[ext_resource type="Texture2D" uid="uid://s57dg5orswwk" path="res://Sprites/WagonShit0.png" id="3_p1p4k"]
+[ext_resource type="Texture2D" uid="uid://3eg8exdxxr6v" path="res://Sprites/WagonShit1.png" id="4_yunkb"]
+[ext_resource type="Texture2D" uid="uid://27nt1efh8g6d" path="res://Sprites/WagonShit2.png" id="5_3b8ni"]
+[ext_resource type="Texture2D" uid="uid://b4864ly5a7b83" path="res://Sprites/ParticleNormal.png" id="6_8a77f"]
+
+[sub_resource type="RectangleShape2D" id="1"]
+size = Vector2(56, 16)
+
+[sub_resource type="Curve" id="Curve_28f6i"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.553435, 0.840491), -0.288217, -1.46759, 1, 1, Vector2(0.729008, 0.582822), -1.46759, -2.41104, 1, 1, Vector2(0.927481, 0.104295), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[node name="Wagon" type="CharacterBody2D"]
+collision_mask = 2
+script = ExtResource("1")
+wagon_texture = ExtResource("2_1kn5y")
+
+[node name="collision" type="CollisionShape2D" parent="."]
+position = Vector2(0, -24)
+shape = SubResource("1")
+
+[node name="WagonShit1" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -32)
+scale = Vector2(2, 2)
+texture = ExtResource("3_p1p4k")
+
+[node name="WagonShit2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -32)
+scale = Vector2(2, 2)
+texture = ExtResource("4_yunkb")
+
+[node name="WagonShit3" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -32)
+scale = Vector2(2, 2)
+texture = ExtResource("5_3b8ni")
+
+[node name="sprite" type="Sprite2D" parent="."]
+position = Vector2(-9.53674e-07, -30)
+scale = Vector2(2, 1.875)
+texture = ExtResource("2_1kn5y")
+
+[node name="Particles" type="CPUParticles2D" parent="."]
+position = Vector2(0, -40)
+emitting = false
+one_shot = true
+explosiveness = 1.0
+texture = ExtResource("6_8a77f")
+direction = Vector2(0, -1)
+gravity = Vector2(0, 490)
+initial_velocity_min = 128.0
+initial_velocity_max = 320.0
+angular_velocity_min = -720.0
+angular_velocity_max = 720.0
+scale_amount_min = 2.0
+scale_amount_max = 2.0
+scale_amount_curve = SubResource("Curve_28f6i")

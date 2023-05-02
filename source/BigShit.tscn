@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bt4ia47moi25y"]
+
+[ext_resource type="Script" path="res://BigShit.gd" id="1_24uma"]
+[ext_resource type="Texture2D" uid="uid://dqbt2ut7twwgl" path="res://Sprites/BigShit0.png" id="2_r7bbs"]
+
+[sub_resource type="RectangleShape2D" id="1"]
+size = Vector2(48, 48)
+
+[node name="Shit" type="CharacterBody2D"]
+collision_layer = 2
+script = ExtResource("1_24uma")
+
+[node name="BigShit0" type="Sprite2D" parent="."]
+position = Vector2(1.43051e-06, 1.43051e-06)
+scale = Vector2(2, 2)
+texture = ExtResource("2_r7bbs")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource("1")

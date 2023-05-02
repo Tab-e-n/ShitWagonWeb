@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://dakjclm1i1rgn"]
+
+[ext_resource type="Script" path="res://Scoreboard.gd" id="1_di5v1"]
+[ext_resource type="Texture2D" uid="uid://d1kbmqiv2opaw" path="res://Sprites/Moon.png" id="2_g7cdx"]
+[ext_resource type="Texture2D" uid="uid://b1it3xuc37d5s" path="res://Sprites/Miss.png" id="2_ttmnh"]
+[ext_resource type="Texture2D" uid="uid://beqt3vxfnmsjb" path="res://Sprites/Hint.png" id="3_y3wdp"]
+
+[sub_resource type="FontVariation" id="FontVariation_oy3f6"]
+variation_transform = Transform2D(2, 0, 0, 2, 0, 0)
+spacing_glyph = 8
+spacing_top = 8
+
+[node name="Scoreboard" type="Node2D"]
+script = ExtResource("1_di5v1")
+
+[node name="Moon" type="Sprite2D" parent="."]
+position = Vector2(-416, 16)
+scale = Vector2(2, 2)
+texture = ExtResource("2_g7cdx")
+
+[node name="points" type="RichTextLabel" parent="."]
+modulate = Color(0.172549, 0.0431373, 0.298039, 1)
+offset_left = -480.0
+offset_right = -352.0
+offset_bottom = 32.0
+theme_override_fonts/normal_font = SubResource("FontVariation_oy3f6")
+bbcode_enabled = true
+text = "[center]100[/center]"
+
+[node name="cross0" type="Sprite2D" parent="."]
+position = Vector2(416, 32)
+scale = Vector2(2, 2)
+texture = ExtResource("2_ttmnh")
+
+[node name="cross1" type="Sprite2D" parent="."]
+position = Vector2(416, 112)
+scale = Vector2(2, 2)
+texture = ExtResource("2_ttmnh")
+
+[node name="cross2" type="Sprite2D" parent="."]
+position = Vector2(416, 192)
+scale = Vector2(2, 2)
+texture = ExtResource("2_ttmnh")
+
+[node name="Hint" type="Sprite2D" parent="."]
+position = Vector2(0, 320)
+scale = Vector2(4, 4)
+texture = ExtResource("3_y3wdp")

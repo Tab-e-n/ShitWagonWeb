@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://ukyjxdwavtns"]
+
+[ext_resource type="Script" path="res://NormalShit.gd" id="1_jwf6n"]
+[ext_resource type="Texture2D" uid="uid://bbtw3ffk3owev" path="res://Sprites/NormalShit0.png" id="2_aqrx3"]
+
+[sub_resource type="RectangleShape2D" id="1"]
+size = Vector2(32, 32)
+
+[node name="Shit" type="CharacterBody2D"]
+collision_layer = 2
+script = ExtResource("1_jwf6n")
+
+[node name="NormalShit0" type="Sprite2D" parent="."]
+position = Vector2(0, 16)
+texture = ExtResource("2_aqrx3")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 16)
+shape = SubResource("1")
